@@ -8,7 +8,7 @@ const Banner = () => {
           BEST TOYS FOR <br /> YOUR KIDS
         </h1>
         <p className="text-lg text-left ">
-          Welcome to ToyTopia! We are your one-stop-shop for all things toys.{" "}
+          Welcome to ToyTopia! We are your one-stop-shop for all things toys.
           <br />
           Our store offers a wide selection of toys for kids of all ages. From
           action figures and dolls to board games and educational toys, you'll
