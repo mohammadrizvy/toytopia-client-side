@@ -67,8 +67,9 @@ const Signup = () => {
                 </label>
                 <input
                   type="text"
-                  
+
                   placeholder="Your name"
+                  
                   name="name"
                   className="input input-bordered"
                 />
