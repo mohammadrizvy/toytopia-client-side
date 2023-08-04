@@ -2,12 +2,12 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="bg-black flex justify-between items-center px-8 py-4 rounded-md mt-10">
-      <div className="text-white w-2/3">
+    <div className="bg-black flex flex-col-reverse lg:flex-row justify-between items-center px-8 py-4 rounded-md mt-10">
+      <div className="text-white w-full lg:w-2/3">
         <h1 className="text-5xl font-bold mb-4 text-left">
           BEST TOYS FOR <br /> YOUR KIDS
         </h1>
-        <p className="text-lg text-left ">
+        <p className="text-lg text-left">
           Welcome to ToyTopia! We are your one-stop-shop for all things toys.
           <br />
           Our store offers a wide selection of toys for kids of all ages. From
@@ -17,9 +17,11 @@ const Banner = () => {
           experience and ensuring that you find the perfect toys for your little
           ones. Visit ToyTopia today and embark on a thrilling adventure of play
           and fun!
+          <br />
+          <button className="btn btn-wide mt-8">Shop Now</button>
         </p>
       </div>
-      <div className="w-1/3 ml-8">
+      <div className="w-full lg:w-1/3 mt-4 lg:mt-0">
         <img
           src="https://i.ibb.co/JrJ7t2z/0eeb0fe7d2259d620f304e88d4b0c362.png"
           alt="ToyTopia"
