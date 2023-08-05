@@ -27,7 +27,7 @@ const Gallery = () => {
           <div
             data-aos="flip-left"
             key={galleryImage._id}
-            className="card shadow-xl image-full"
+            className="card  image-full"
           >
             <figure>
               <img src={galleryImage.galleryPhoto} alt={galleryImage.name} />
