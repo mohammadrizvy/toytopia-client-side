@@ -6,6 +6,7 @@ const Alltoy = () => {
             
         </div>
     );
+    
 };
 
 export default Alltoy;
