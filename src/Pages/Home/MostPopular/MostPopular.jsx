@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const MostPopular = () => {
   const [populars, setPopulars] = useState([]);
@@ -19,26 +22,26 @@ const MostPopular = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {populars.map((toy) => (
-            <div key={toy._id} className="card  card-compact shadow-xl">
+            <div
+              key={toy._id}
+              data-aos="flip-left"
+              className="card  card-compact bg-black text-white  relative"
+            >
+              <span className="indicator-item badge badge-secondary absolute top-2 left-2">
+                Popular
+              </span>
               <figure>
-                <div className="indicator">
-                  <img
-                    src={toy.image}
-                    alt={toy.name}
-                    className="w-full h-full object-cover mb-4"
-                  />
-                  <span className="indicator-item badge badge-secondary">
-                    Popular
-                  </span>
-                </div>
+                <img
+                  src={toy.image}
+                  alt={toy.name}
+                  className="w-full h-full object-cover rounded-md "
+                />
               </figure>
-              <div className="card-body">
-                <h3 className="text-xl font-semibold mb-2">{toy.name}</h3>
-                <p className="text-gray-600 text-left mb-4">
-                  {toy.description}
-                </p>
-                <p className="text-lg font-bold mb-4">{toy.price}</p>
-                <button className="btn btn-primary">Buy Now</button>
+              <div className="card-body h-94">
+                <h3 className="text-xl font-semibold ">{toy.name}</h3>
+                <p className="text-white text-left">{toy.description}</p>
+                <p className="text-lg font-bold ">{toy.price}</p>
+                <button className="btn bg-white">Buy Now</button>
               </div>
             </div>
           ))}

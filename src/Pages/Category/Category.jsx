@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Audio, Dna } from "react-loader-spinner";
+import DnaLoader from "../Shared/DnaLoader/DnaLoader";
 
 const Category = () => {
   const [categories, setCategories] = useState();
@@ -13,18 +14,8 @@ const Category = () => {
   }, []);
 
   if (!categories) {
-    // Add a loading state or return null if the data is not available yet
     return (
-      <div className="loading-container">
-        <Dna
-          visible={true}
-          height={80}
-          width={80}
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClassName="dna-wrapper"
-        />
-      </div>
+      <DnaLoader></DnaLoader>
     );
   }
 

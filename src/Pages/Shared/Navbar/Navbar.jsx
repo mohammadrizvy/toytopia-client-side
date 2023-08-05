@@ -4,7 +4,7 @@ import { AuthContex } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user ,logOut } = useContext(AuthContex);
+  const { user, logOut } = useContext(AuthContex);
 
   const handleLogout = (event) => {
     logOut()
@@ -79,20 +79,28 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a>All Toys</a>
+            <Link to={"/alltoy"}>
+              <a>All Toys</a>
+            </Link>
           </li>
           {user && (
             <>
               <li>
-                <a>My Toy</a>
+                <Link to={"/addtoy"}>
+                  <a>Add Toy</a>
+                </Link>
               </li>
               <li>
-                <a>Add Toy</a>
+                <Link to={"/mytoy"}>
+                  <a>My Toy</a>
+                </Link>
               </li>
             </>
           )}
           <li>
-            <a>Blogs</a>
+            <Link to={"blog"}>
+              <a>Blogs</a>
+            </Link>
           </li>
         </ul>
       </div>
