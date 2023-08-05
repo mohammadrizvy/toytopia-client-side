@@ -26,6 +26,7 @@ const MostPopular = () => {
               key={toy._id}
               data-aos="flip-left"
               className="card  card-compact bg-black text-white  relative"
+              
             >
               <span className="indicator-item badge badge-secondary absolute top-2 left-2">
                 Popular
