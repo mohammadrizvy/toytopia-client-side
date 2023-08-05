@@ -17,33 +17,46 @@ const Category = () => {
   }
 
   return (
-    <div>
+    <div className="mt-10">
       <Tabs>
         <TabList>
           {categories.map((category) => (
-            <Tab key={category._id}>{category.title}</Tab>
+            <Tab key={category._id}>
+              <p className="">{category.title}</p>
+            </Tab>
           ))}
         </TabList>
 
         {categories.map((category) => (
           <TabPanel key={category._id}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className=" grid grid-cols-2 gap-4">
               {category.toys.map((toy) => (
-                <div key={toy.name} className="p-4 border rounded">
-                  <img
-                    src={toy.image}
-                    alt={toy.name}
-                    className="w-full h-32 object-cover mb-4"
-                  />
-                  <h3 className="text-lg font-semibold">{toy.name}</h3>
-                  <p>{toy.price}</p>
-                  <div className="flex items-center mt-2">
-                    <span className="text-yellow-500 mr-1">&#9733;</span>
-                    <span>{toy.rating}</span>
+                <div
+                  key={toy.name}
+                  className="card card-compact  bg-black text-white shadow-xl"
+                >
+                  <figure>
+                    <img
+                      src={toy.image}
+                      alt={toy.name}
+                      className="w-full h-96 object-cover mb-4"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h3 className="text-lg font-semibold">{toy.name}</h3>
+                    <p> Price : {toy.price}</p>
+                    <div className="flex justify-between">
+                      <div className="flex justify-center items-center mt-2">
+                        <span className="text-xl text-yellow-500 mr-1">
+                          &#9733;
+                        </span>
+                        <span className="text-xl">{toy.rating}</span>
+                      </div>
+                      <div className="card-actions justify-end">
+                        <button className="btn text-black">View Details</button>
+                      </div>
+                    </div>
                   </div>
-                  <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
-                    View Details
-                  </button>
                 </div>
               ))}
             </div>
