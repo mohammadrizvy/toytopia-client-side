@@ -1,13 +1,18 @@
 import React, { useContext, useState } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/animationLogin3_lkwgg6tu.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const LogIn = () => {
   const { login,loginWithGoogle } = useContext(AuthContex);
   const [errorMessage, setErrorMessage] = useState("");
+   const location = useLocation();
+
+   const from = location.state?.from?.pathname || "/";
+
+   const navigate = useNavigate();
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -18,6 +23,7 @@ const LogIn = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
         setErrorMessage("");
         showSuccessAlert("Login successful!");

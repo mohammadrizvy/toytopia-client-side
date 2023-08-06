@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToy = () => {
   const [mytoys, setMyToys] = useState([]);
@@ -11,7 +13,32 @@ const MyToy = () => {
       });
   }, []);
 
-  
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        fetch(`http://localhost:5000/toys/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <p className="text-4xl underline mb-16 font-bold">My Toys</p>
@@ -38,7 +65,10 @@ const MyToy = () => {
               </div>
               <p className="text-left">Available Quantity: {toy.quantity}</p>
               <div className="card-actions justify-between">
-                <button className="btn text-red-400 btn-square w-[45%]">
+                <button
+                  onClick={() => handleDelete(toy._id)}
+                  className="btn text-red-400 btn-square w-[45%]"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -54,9 +84,12 @@ const MyToy = () => {
                     />
                   </svg>
                 </button>
-                <button className="btn w-[45%] bg-white text-black">
+                <Link
+                  to={`/updatetoy/${toy._id}`}
+                  className="btn w-[45%] bg-white text-black"
+                >
                   Edit
-                </button>
+                </Link>
               </div>
             </div>
           </div>
